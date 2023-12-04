@@ -4,9 +4,8 @@ import janela_solo as jsl
 sg.theme('DarkAmber')
 
 layout = [
-        [sg.Button('Solo'),sg.Button('Praticas'),sg.Button('Chuva')]
-          ]
-
+    [sg.Button('Solo'), sg.Button('Praticas'), sg.Button('Chuva')]
+]
 
 window = sg.Window('Erosão do solo', layout)
 
@@ -20,6 +19,5 @@ while True:
         pass
     if event == 'Praticas':
         pass
-
 
 window.close()
