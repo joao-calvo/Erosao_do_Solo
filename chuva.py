@@ -43,45 +43,20 @@ def calcular_medias(ano, mes):
 
     dados_filtrados = df[(df['ANO'] == ano)]
 
-    dados_precipitacao = dados_filtrados['Precipitacao']
-    lista_dados_precipitacao = []
-    for i in dados_precipitacao:
-        lista_dados_precipitacao.append(i)
-
-    if mes == 'JAN':
-        mes = 1
-    elif mes == 'FEV':
-        mes = 2
-    elif mes == 'MAR':
-        mes = 3
-    elif mes == 'ABR':
-        mes = 4
-    elif mes == 'MAI':
-        mes = 5
-    elif mes == 'JUN':
-        mes = 6
-    elif mes == 'JUL':
-        mes = 7
-    elif mes == 'AGO':
-        mes = 8
-    elif mes == 'SET':
-        mes = 9
-    elif mes == 'OUT':
-        mes = 10
-    elif mes == 'NOV':
-        mes = 11
-    elif mes == 'DEZ':
-        mes = 12
-
-    media_mensal = lista_dados_precipitacao[mes - 1]
-
+    dados_chuva = {}
     media_anual = 0
+    media_mensal = 0
 
-    for dados in dados_precipitacao:
-        media_anual += dados
+    for dados in dados_filtrados.values:
+        x,y,z = dados
+        dados_chuva[y] = z
 
-    media_anual = media_anual / len(dados_precipitacao)
+    for dados in dados_chuva.keys():
+        media_anual += int(dados_chuva[dados])
+    media_anual = media_anual/len(dados_chuva)
 
+    media_mensal = int(dados_chuva[mes])
+    
     return media_anual, media_mensal
 
 
