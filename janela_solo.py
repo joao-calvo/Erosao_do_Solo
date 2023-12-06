@@ -1,7 +1,10 @@
 import PySimpleGUI as sg
-import solo as sl
+
+import janela_chuva as jch
 import manejo_conservacionista as mc
-import chuva as ch
+import solo as sl
+
+perda_max = []
 
 
 def create_window():
@@ -41,7 +44,7 @@ def create_window():
             *resto, cultivo, preparo, pratica = solo.keys()
             declividade = float(values['declividade'])
 
-            print(cultivo,preparo,pratica)
+            print(cultivo, preparo, pratica)
 
             if cultivo in mc.cultivo.keys():
                 cultivo = mc.cultivo[cultivo]
@@ -50,10 +53,11 @@ def create_window():
             if pratica in mc.pratica.keys():
                 pratica = mc.pratica[pratica]
 
-            medias = ch.x
-            valor_r = ch.erosividade('SP', medias[0], medias[1])
-
-            perda_max = sl.max_perda_solo(valor_k, valor_r, declividade, cultivo, preparo, pratica)
-            print(perda_max)
+            for r in jch.valores_r:
+                perda_max.append(sl.max_perda_solo(valor_k, r, declividade, cultivo, preparo, pratica))
+            if not perda_max:
+                print('Você precisa calcular a chuva antes')
+            else:
+                print(perda_max)
 
     window.close()

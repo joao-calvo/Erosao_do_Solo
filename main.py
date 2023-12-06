@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import janela_solo as jsl
-
+import janela_chuva as jch
 sg.theme('LightBlue')
 
 layout = [
@@ -16,7 +16,7 @@ while True:
     if event == 'Solo':
         jsl.create_window()
     if event == 'Chuva':
-        pass
+        jch.create_window()
     if event == 'Praticas':
         pass
 

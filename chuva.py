@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def erosividade(regiao, m_anual, m_mensal):
     indice_regiao = ''
     valor_r = ''
@@ -38,7 +39,7 @@ def erosividade(regiao, m_anual, m_mensal):
     return valor_r
 
 
-def calcular_medias(ano, mes):
+def calcular_medias_anual(ano):
     df = pd.read_excel('/Users/briancintracardoso/PycharmProjects/Erosao/Erosao_do_Solo/dados_chuva.xlsx')
 
     dados_filtrados = df[(df['ANO'] == ano)]
@@ -47,18 +48,47 @@ def calcular_medias(ano, mes):
     media_anual = 0
 
     for dados in dados_filtrados.values:
-        x,y,z = dados
-        dados_chuva[y] = z
+        year, mes_1, media = dados
+        dados_chuva[mes_1] = media
 
     for dados in dados_chuva.keys():
         media_anual += int(dados_chuva[dados])
-        
-    media_anual = media_anual/len(dados_chuva)
 
-    media_mensal = int(dados_chuva[mes])
+    media_anual = media_anual / len(dados_chuva)
 
-    return media_anual, media_mensal
+    return media_anual
 
 
-x = calcular_medias(2022, 'JAN')
+def calcular_media_mensal(ano, mes):
+    df = pd.read_excel('/Users/briancintracardoso/PycharmProjects/Erosao/Erosao_do_Solo/dados_chuva.xlsx')
+
+    dados_filtrados = df[(df['ANO'] == ano)]
+
+    dados_chuva = {}
+
+    for dados in dados_filtrados.values:
+        year, mes_1, media = dados
+        dados_chuva[mes_1] = media
+
+    return dados_chuva[mes]
+
+
+'''
+
+y = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ']
+x =[]
+z=[]
+for mes in y:
+    x.append(calcular_medias(2022,mes))
+
+for dado in x:
+    z.append(erosividade('SP',dado[0],dado[1]))
+soma = 0
+for a in z:
+    soma += a
 print(x)
+print(z)
+print(soma)
+print(soma/100)
+
+'''
