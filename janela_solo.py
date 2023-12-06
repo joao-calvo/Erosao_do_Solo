@@ -59,5 +59,6 @@ def create_window():
                 print('Você precisa calcular a chuva antes')
             else:
                 print(perda_max)
+                window.close()
 
     window.close()

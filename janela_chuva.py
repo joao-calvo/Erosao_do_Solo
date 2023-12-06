@@ -10,7 +10,7 @@ def create_window():
 
     layout = [[sg.Text('Ano: ')], [sg.InputText(key='ano')],
               [sg.Text('Estado')], [sg.InputText(key='estado')],
-              [sg.Button('Calcular')]
+              [sg.Button('Calcular', key='calcular')]
               ]
 
     window = sg.Window('Erosão do solo', layout)
@@ -19,7 +19,8 @@ def create_window():
         event, values = window.read()
         if event == sg.WIN_CLOSED:
             break
-        if event == 'Calcular':
+
+        if event == 'calcular':
             x = (ch.calcular_medias_anual(int(values['ano'])))
             lista_chuva = []
             for mes in meses:
@@ -27,5 +28,6 @@ def create_window():
             for dado in lista_chuva:
                 valores_r.append(ch.erosividade(values['estado'], x, dado))
             print(valores_r)
+            window.close()
 
     window.close()

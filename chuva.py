@@ -71,24 +71,3 @@ def calcular_media_mensal(ano, mes):
         dados_chuva[mes_1] = media
 
     return dados_chuva[mes]
-
-
-'''
-
-y = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ']
-x =[]
-z=[]
-for mes in y:
-    x.append(calcular_medias(2022,mes))
-
-for dado in x:
-    z.append(erosividade('SP',dado[0],dado[1]))
-soma = 0
-for a in z:
-    soma += a
-print(x)
-print(z)
-print(soma)
-print(soma/100)
-
-'''
