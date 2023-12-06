@@ -1,9 +1,12 @@
 import PySimpleGUI as sg
 import solo as sl
 import manejo_conservacionista as mc
+import chuva as ch
 
 def create_window():
     sg.theme('DarkAmber')
+
+    solo = {}
 
     layout = [
         [sg.Text('Classe do solo'), sg.InputText(key='classe')],
@@ -28,7 +31,31 @@ def create_window():
             break
         if event == 'Inserir':
             valor_k = sl.boyoccos(int(values['argila']), int(values['silte']), int(values['areia']))
-            print(valor_k)
-            print(values)
+            for x in values.keys():
+                if values[x] == False:
+                    continue
+                else:
+                    solo[x] = values[x]
+            *resto, cultivo, preparo, pratica = solo.keys()
+            declividade = float(values['declividade'])
+
+
+            if cultivo in mc.cultivo.keys():
+                cultivo = mc.cultivo[cultivo]
+            if preparo in mc.preparo.keys():
+                preparo = mc.preparo[preparo]
+            if pratica in mc.pratica.keys():
+                pratica = mc.pratica[pratica]
+
+            medias = ch.x
+            valor_r = ch.erosividade('SP',medias[0],medias[1])
+
+
+            perda_max = sl.max_perda_solo(valor_k,valor_r,declividade,cultivo,preparo,pratica)
+            print(perda_max)
+
+
+
+
 
     window.close()
