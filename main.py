@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import janela_solo as jsl
 
-sg.theme('DarkAmber')
+sg.theme('LightBlue')
 
 layout = [
     [sg.Button('Solo'), sg.Button('Praticas'), sg.Button('Chuva')]

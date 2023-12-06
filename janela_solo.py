@@ -3,8 +3,9 @@ import solo as sl
 import manejo_conservacionista as mc
 import chuva as ch
 
+
 def create_window():
-    sg.theme('DarkAmber')
+    sg.theme('LightBlue')
 
     solo = {}
 
@@ -32,13 +33,15 @@ def create_window():
         if event == 'Inserir':
             valor_k = sl.boyoccos(int(values['argila']), int(values['silte']), int(values['areia']))
             for x in values.keys():
-                if values[x] == False:
+                if not values[x]:
                     continue
                 else:
                     solo[x] = values[x]
+            print(solo)
             *resto, cultivo, preparo, pratica = solo.keys()
             declividade = float(values['declividade'])
 
+            print(cultivo,preparo,pratica)
 
             if cultivo in mc.cultivo.keys():
                 cultivo = mc.cultivo[cultivo]
@@ -48,14 +51,9 @@ def create_window():
                 pratica = mc.pratica[pratica]
 
             medias = ch.x
-            valor_r = ch.erosividade('SP',medias[0],medias[1])
+            valor_r = ch.erosividade('SP', medias[0], medias[1])
 
-
-            perda_max = sl.max_perda_solo(valor_k,valor_r,declividade,cultivo,preparo,pratica)
+            perda_max = sl.max_perda_solo(valor_k, valor_r, declividade, cultivo, preparo, pratica)
             print(perda_max)
-
-
-
-
 
     window.close()

@@ -45,7 +45,6 @@ def calcular_medias(ano, mes):
 
     dados_chuva = {}
     media_anual = 0
-    media_mensal = 0
 
     for dados in dados_filtrados.values:
         x,y,z = dados

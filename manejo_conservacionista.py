@@ -19,7 +19,7 @@ preparo = {
 pratica = {
     'Morro': 1,
     'Cruzado': 0.75,
-    'Nível': 0.50,
+    'Nivel': 0.50,
     'FC': 0.37,
     'FN': 0.25
 }
