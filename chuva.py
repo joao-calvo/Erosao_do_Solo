@@ -53,10 +53,11 @@ def calcular_medias(ano, mes):
 
     for dados in dados_chuva.keys():
         media_anual += int(dados_chuva[dados])
+        
     media_anual = media_anual/len(dados_chuva)
 
     media_mensal = int(dados_chuva[mes])
-    
+
     return media_anual, media_mensal
 
 
