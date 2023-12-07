@@ -8,18 +8,18 @@ cultivo = {
 }
 
 preparo = {
-    'Outono': 1.0,
-    'Primavera': 0.9,
-    'Mulch': 0.60,
-    'Nível': 0.35,
-    'Talhao': 0.25,
-    'PD': 0.25
+    'Aração de outono': 1.0,
+    'Aração de primavera': 0.9,
+    'Preparo com mulch': 0.60,
+    'Preparo em nível': 0.35,
+    'Preparo em talhões': 0.25,
+    'Plantio direto': 0.25
 }
 
 pratica = {
-    'Morro': 1,
-    'Cruzado': 0.75,
-    'Nivel': 0.50,
-    'FC': 0.37,
-    'FN': 0.25
+    'Morro abaixo': 1,
+    'Plantio cruzado': 0.75,
+    'Plantio em nível': 0.50,
+    'Plantio em faixas, cruzado': 0.37,
+    'Plantio em faixas, em nível': 0.25
 }

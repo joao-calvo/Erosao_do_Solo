@@ -60,15 +60,18 @@ def create_window_resultado_geral(perda_total, ambiente_producao, tolerancia_per
     if ambiente_producao == 'Grupo 1':
         layout = [[sg.Text(rf.Grupo_1)],
                   [sg.Text(
-                      f'Perda de solo anual de {perda_total} Mg.ha-1, seu solo tolera perdas de {tolerancia_perda} Mg.ha-1 ')]]
+                      f'Perda de solo anual de {perda_total} Mg.ha-1, seu solo tolera perdas de {tolerancia_perda} Mg'
+                      f'.ha-1 ')]]
     if ambiente_producao == 'Grupo 2':
         layout = [[sg.Text(rf.Grupo_2)],
                   [sg.Text(
-                      f'Perda de solo anual de {perda_total} Mg.ha-1, seu solo tolera perdas de {tolerancia_perda} Mg.ha-1 ')]]
+                      f'Perda de solo anual de {perda_total} Mg.ha-1, seu solo tolera perdas de {tolerancia_perda} Mg'
+                      f'.ha-1 ')]]
     if ambiente_producao == 'Grupo 3':
         layout = [[sg.Text(rf.Grupo_3)],
                   [sg.Text(
-                      f'Perda de solo anual de {perda_total} Mg.ha-1, seu solo tolera perdas de {tolerancia_perda} Mg.ha-1 ')]]
+                      f'Perda de solo anual de {perda_total} Mg.ha-1, seu solo tolera perdas de {tolerancia_perda} Mg'
+                      f'.ha-1 ')]]
     if ambiente_producao == 'Grupo 4':
         layout = [[sg.Text(rf.Grupo_4)],
                   [sg.Text(

@@ -76,7 +76,8 @@ def create_window():
                 print(f"#####{somas}")
 
                 rs.create_window(perda_max)
-                rs.create_window_resultado_geral(somas,sl.ambientes_producao(values['classe'],values['argila']),sl.tolerancia_perda[values['classe']])
+                rs.create_window_resultado_geral(somas, sl.ambientes_producao(values['classe'], values['argila']),
+                                                 sl.tolerancia_perda[values['classe']])
                 solo.clear()
                 perda_max.clear()
                 for key in values:
@@ -119,7 +120,7 @@ def create_window():
                 for mes in meses:
                     perda_max_modelo = sl.max_perda_solo(valor_k, jch.valores_r_modelo[str(ano)][mes], declividade,
                                                          cultivo, preparo, pratica)
-                    soma+= perda_max_modelo
+                    soma += perda_max_modelo
                 dic_modelo[str(ano)] = soma
             print(dic_modelo)
 
@@ -128,6 +129,5 @@ def create_window():
                 lista_teste.append(dic_modelo[ano])
 
             rs.create_window_modelo(lista_teste)
-
 
     window.close()

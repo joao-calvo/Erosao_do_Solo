@@ -19,9 +19,10 @@ def create_window():
 
     layout = [[sg.Text('Ano: ')], [sg.InputText(key='ano', text_color='white'), ],
               [sg.Text('Estado')], [sg.InputText(key='estado', text_color='white')],
-              [sg.Button('Calcular', key='calcular'), [sg.Button('Calcular modelo',
-                                                                 key='modelo')]]
+              [sg.Button('Calcular', key='calcular')],
+              [sg.Button('Calcular modelo',key='modelo'),sg.Text('Para calcular o modelo insira apenas o Estado')]
               ]
+
 
     window = sg.Window('EROMIT', layout)
 
