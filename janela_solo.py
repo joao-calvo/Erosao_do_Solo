@@ -76,6 +76,7 @@ def create_window():
                 print(f"#####{somas}")
 
                 rs.create_window(perda_max)
+                rs.create_window_resultado_geral(somas,sl.ambientes_producao(values['classe'],values['argila']),sl.tolerancia_perda[values['classe']])
                 solo.clear()
                 perda_max.clear()
                 for key in values:
