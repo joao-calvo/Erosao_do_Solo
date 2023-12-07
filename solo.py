@@ -18,9 +18,9 @@ def max_perda_solo(r, k, ls, c, p1, p2):
 
 def ambientes_producao(classe, argila):
     if classe == 'Latossolo':
-        if argila in range(35, 60):
+        if int(argila) in range(36, 60):
             return 'Grupo 1'
-        elif argila in range(15, 35):
+        elif int(argila) in range(15, 36):
             return 'Grupo 2'
     elif classe == 'Argissolo':
         return 'Grupo 3'
