@@ -23,3 +23,23 @@ pratica = {
     'Plantio em faixas, cruzado': 0.37,
     'Plantio em faixas, em nível': 0.25
 }
+
+def melhor_resultado(perda_solo):
+    perdas_mininimas = {}
+
+
+    for cult in cultivo.keys():
+        perda_solo_texte = perda_solo*cultivo[cult]
+        for prep in preparo.keys():
+            x = perda_solo_texte
+            x = x*preparo[prep]
+            for prat in pratica.keys():
+                y = x
+                y = y*pratica[prat]
+                if y < perda_solo:
+                    perdas_mininimas[cult] = f'{prep} + {prat}'
+
+
+    print(perdas_mininimas)
+    return perdas_mininimas
+

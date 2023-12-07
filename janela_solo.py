@@ -8,6 +8,9 @@ import resultado as rs
 perda_max = []
 perda_max_modelo = {}
 meses = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ']
+lista_pratica = []
+
+
 
 
 def create_window():
@@ -63,6 +66,13 @@ def create_window():
                 preparo = mc.preparo[preparo]
             if pratica in mc.pratica.keys():
                 pratica = mc.pratica[pratica]
+
+            def retornar_valor_pratica(cultivo, preparo,pratica):
+                return cultivo*preparo*pratica
+            lista_pratica.append(retornar_valor_pratica(cultivo,preparo,pratica))
+
+
+
 
             for r in jch.valores_r:
                 perda_max.append(sl.max_perda_solo(valor_k, r, declividade, cultivo, preparo, pratica))
